@@ -1,0 +1,3894 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Student Form</title>
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/style.css?v=<?php echo time(); ?>">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css?v=<?php echo time(); ?>">
+	<link rel="shortcut icon" type="image/x-icon" href="pics/t1.png">
+</head>
+<body>
+	
+	<?php  
+		if (empty($_POST['check1'])) 
+		{	
+			header('Location:Studentform1.php');
+		}
+		
+		$class = $_POST['class'];
+		$batch = $_POST['batch'];
+		$status = $_POST['status'];
+		$group = $_POST['group'];
+		$board = $_POST['board'];
+
+		// student data
+		$majorsub = $_POST['majorsub'];
+		$sname   = $_POST['sname'];
+		$sfname   = $_POST['sfname']; 
+		$gender  = $_POST['gender'];
+		$dob  = $_POST['dob'];
+		$sdomicile = $_POST['sdomicile'];
+		$sreligion = $_POST['sreligion'];
+		$scnic = $_POST['scnic'];
+		$snationality = $_POST['snationality'];
+		$sphone = $_POST['sphone'];
+		$scell = $_POST['scell'];
+		$semail = $_POST['semail'];
+		$saddress = $_POST['saddress'];
+
+		// // guardian data
+		$ginfo = $_POST['ginfo'];
+		$relation = $_POST['relation'];
+		$gname = $_POST['gname'];
+		$gcnic = $_POST['gcnic'];
+		$gemail = $_POST['gemail'];
+		$gphone = $_POST['gphone'];
+		$gcell = $_POST['gcell'];
+
+		// echo "Student Info"; echo "<br>";
+		// // student
+		// echo $majorsub; echo "<br>";
+		// echo $sname; echo "<br>";
+		// echo $sfname; echo "<br>";
+		// echo $gender; echo "<br>";
+		// echo $dob; echo "<br>";
+		// echo $sdomicile; echo "<br>";
+		// echo $sreligion; echo "<br>";
+		// echo $scnic; echo "<br>";
+		// echo $snationality; echo "<br>";
+		// echo $saddress; echo "<br>";
+		// echo $sphone; echo "<br>";
+		// echo $scell; echo "<br>";
+		// echo $semail; echo "<br>";
+
+		// echo "Guardian's Info"; echo "<br>";
+		// // guardian's
+		// echo $ginfo; echo "<br>";
+		// echo $gname; echo "<br>";
+		// echo $gcnic; echo "<br>";
+		// echo $gemail; echo "<br>";
+		// echo $gphone; echo "<br>";
+		// echo $gcell; echo "<br>";
+
+		// echo "Academic Info"; echo "<br>";
+		// echo $class; echo "<br>";
+		// echo $batch; echo "<br>";
+		// echo $status; echo "<br>";
+		// echo $group; echo "<br>";
+		// echo $board; echo "<br>";
+		// $majorsub = "Masters";
+		// $class = "Semester_1";
+		// $group = "MSC";
+		
+	?>
+
+	<script>
+		function validation2()
+		{
+			
+			var majorsubi = document.getElementById("majorsubi").value;
+			var classi = document.getElementById("classi").value;
+			var groupi = document.getElementById("groupi").value;
+			var chaction = document.forms;
+			if ((majorsubi=="Matric")||(majorsubi=="Intermediate")||(majorsubi=="Bachelors")) 
+			{
+				chaction.action="testform.php";
+			}
+			else if ((majorsubi=="Junior")||(majorsubi=="Masters")) 
+			{
+				chaction.action="Studentform3M.php";
+			}
+			else if ((majorsubi=="Entry_Test")||(majorsubi=="Courses")) 
+			{
+				chaction.action="Studentform3E.php";
+			}
+			else
+			{
+				chaction.action="Studentform.php";	
+			}
+
+			if ((majorsubi=="Matric")&&((classi=="Ninth")||(classi=="Tenth"))) 
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if ((majorsubi=="Matric")&&(classi=="Composite_Matric")) 
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+				var sub14 = document.getElementById("sub14");
+				var sub15 = document.getElementById("sub15");
+				var sub16 = document.getElementById("sub16");
+				var sub17 = document.getElementById("sub17");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)||(sub14.checked==true)||(sub15.checked==true)||(sub16.checked==true)||(sub17.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if (((classi=="First_year")||(classi=="Second_year"))&&((groupi=="FSC_Med")||(groupi=="FSC_Eng")||(groupi=="ICS_Phy")||(groupi=="ICS_Stats")||(groupi=="ICS_Eco"))) 
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if (((classi=="First_year")||(classi=="Second_year"))&&((groupi=="ICOM")||(groupi=="FA"))) 
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if ((classi=="Composite_Inter")&&((groupi=="FSC_Med")||(groupi=="FSC_Eng")||(groupi=="ICS_Phy")||(groupi=="ICS_Stats")||(groupi=="ICS_Eco")))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if ((classi=="Composite_Inter")&&((groupi=="ICOM")||(groupi=="FA")))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+				var sub14 = document.getElementById("sub14");
+				var sub15 = document.getElementById("sub15");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)||(sub14.checked==true)||(sub15.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if (((classi=="Third_year")||(classi=="Fourth_year"))&&(groupi=="BSC"))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+				var sub14 = document.getElementById("sub14");
+				var sub15 = document.getElementById("sub15");
+				var sub16 = document.getElementById("sub16");
+				var sub17 = document.getElementById("sub17");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)||(sub14.checked==true)||(sub15.checked==true)||(sub16.checked==true)||(sub17.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if (((classi=="Third_year")||(classi=="Fourth_year"))&&(groupi=="BCOM"))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if (((classi=="Third_year")||(classi=="Fourth_year"))&&(groupi=="BA"))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if ((classi=="Composite_Bachelors")&&(groupi=="BSC"))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+				var sub14 = document.getElementById("sub14");
+				var sub15 = document.getElementById("sub15");
+				var sub16 = document.getElementById("sub16");
+				var sub17 = document.getElementById("sub17");
+				var sub18 = document.getElementById("sub18");
+				var sub19 = document.getElementById("sub19");
+				var sub20 = document.getElementById("sub20");
+				var sub21 = document.getElementById("sub21");
+				var sub22 = document.getElementById("sub22");
+				var sub22 = document.getElementById("sub23");
+				var sub24 = document.getElementById("sub24");
+				var sub25 = document.getElementById("sub25");
+				var sub26 = document.getElementById("sub26");
+				var sub27 = document.getElementById("sub27");
+				var sub28 = document.getElementById("sub28");
+				var sub29 = document.getElementById("sub29");
+				var sub30 = document.getElementById("sub30");
+				var sub31 = document.getElementById("sub31");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)||(sub14.checked==true)||(sub15.checked==true)||(sub16.checked==true)||(sub17.checked==true)||(sub18.checked==true)||(sub19.checked==true)||(sub20.checked==true)||(sub21.checked==true)||(sub22.checked==true)||(sub23.checked==true)||(sub24.checked==true)||(sub25.checked==true)||(sub26.checked==true)||(sub27.checked==true)||(sub28.checked==true)||(sub29.checked==true)||(sub30.checked==true)||(sub31.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if ((classi=="Composite_Bachelors")&&((groupi=="BCOM")||(groupi=="BA")))
+			{
+				var sub1 = document.getElementById("sub1");
+				var sub2 = document.getElementById("sub2");
+				var sub3 = document.getElementById("sub3");
+				var sub4 = document.getElementById("sub4");
+				var sub5 = document.getElementById("sub5");
+				var sub6 = document.getElementById("sub6");
+				var sub7 = document.getElementById("sub7");
+				var sub8 = document.getElementById("sub8");
+				var sub9 = document.getElementById("sub9");
+				var sub10 = document.getElementById("sub10");
+				var sub11 = document.getElementById("sub11");
+				var sub12 = document.getElementById("sub12");
+				var sub13 = document.getElementById("sub13");
+				var sub14 = document.getElementById("sub14");
+				var sub15 = document.getElementById("sub15");
+				var sub16 = document.getElementById("sub16");
+
+				if ((sub1.checked==true)||(sub2.checked==true)||(sub3.checked==true)||(sub4.checked==true)||(sub5.checked==true)||(sub6.checked==true)||(sub7.checked==true)||(sub8.checked==true)||(sub9.checked==true)||(sub10.checked==true)||(sub11.checked==true)||(sub12.checked==true)||(sub13.checked==true)||(sub14.checked==true)||(sub15.checked==true)||(sub16.checked==true)) 
+				{
+					return true;
+				}
+				else
+				{
+					document.getElementById("errorbar").innerHTML=("*Please Select Atleast One Subject");
+					return false;
+				}
+			}
+			else if((majorsubi=="Entry_Test")||(majorsubi=="Courses"))
+			{
+				var subi = document.getElementById("subi").value;
+				if (subi=="") 
+				{
+					document.getElementById("subv").innerHTML=("*Please Select Your Test Type");
+					return false;	
+				}
+				else
+				{
+					document.getElementById("subv").innerHTML=("");
+					return true;
+				}
+			}
+			else if((majorsubi=="Masters")||(majorsubi=="Junior"))
+			{
+				var subn = document.getElementById("subn").value;
+				if (subn=="") 
+				{
+					document.getElementById("subnv").innerHTML=("*You Must Select the Number of Subjects");
+					return false;	
+				}
+				else if (subn=="1") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					if (sub1=="") 
+					{
+						alert("Heloo");
+						document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");
+						return false;
+					}
+				}
+				else if (subn=="2") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					if ((sub1=="") || (sub2=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="3") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="4") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="5") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+				
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="6") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+					var sub6 = document.getElementById("sub6i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")||(sub6=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+						if (sub6=="") 
+						{
+							document.getElementById("sub6v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub6v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="7") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+					var sub6 = document.getElementById("sub6i").value;
+					var sub7 = document.getElementById("sub7i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")||(sub6=="")||(sub7=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+						if (sub6=="") 
+						{
+							document.getElementById("sub6v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub6v").innerHTML=("");		
+						}
+						if (sub7=="") 
+						{
+							document.getElementById("sub7v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub7v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="8") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+					var sub6 = document.getElementById("sub6i").value;
+					var sub7 = document.getElementById("sub7i").value;
+					var sub8 = document.getElementById("sub8i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")||(sub6=="")||(sub7=="")||(sub8=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+						if (sub6=="") 
+						{
+							document.getElementById("sub6v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub6v").innerHTML=("");		
+						}
+						if (sub7=="") 
+						{
+							document.getElementById("sub7v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub7v").innerHTML=("");		
+						}
+						if (sub8=="") 
+						{
+							document.getElementById("sub8v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub8v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="9") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+					var sub6 = document.getElementById("sub6i").value;
+					var sub7 = document.getElementById("sub7i").value;
+					var sub8 = document.getElementById("sub8i").value;
+					var sub9 = document.getElementById("sub9i").value;
+			
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")||(sub6=="")||(sub7=="")||(sub8=="")||(sub9=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+						if (sub6=="") 
+						{
+							document.getElementById("sub6v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub6v").innerHTML=("");		
+						}
+						if (sub7=="") 
+						{
+							document.getElementById("sub7v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub7v").innerHTML=("");		
+						}
+						if (sub8=="") 
+						{
+							document.getElementById("sub8v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub8v").innerHTML=("");		
+						}
+						if (sub9=="") 
+						{
+							document.getElementById("sub9v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub9v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+				else if (subn=="10") 
+				{
+					var sub1 = document.getElementById("sub1i").value;
+					var sub2 = document.getElementById("sub2i").value;
+					var sub3 = document.getElementById("sub3i").value;
+					var sub4 = document.getElementById("sub4i").value;
+					var sub5 = document.getElementById("sub5i").value;
+					var sub6 = document.getElementById("sub6i").value;
+					var sub7 = document.getElementById("sub7i").value;
+					var sub8 = document.getElementById("sub8i").value;
+					var sub9 = document.getElementById("sub9i").value;
+					var sub10 = document.getElementById("sub10i").value;
+					
+					if ((sub1=="")||(sub2=="")||(sub3=="")||(sub4=="")||(sub5=="")||(sub6=="")||(sub7=="")||(sub8=="")||(sub9=="")||(sub10=="")) 
+					{
+						if (sub1=="") 
+						{
+							document.getElementById("sub1v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub1v").innerHTML=("");		
+						}
+						if (sub2=="") 
+						{
+							document.getElementById("sub2v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub2v").innerHTML=("");		
+						}
+						if (sub3=="") 
+						{
+							document.getElementById("sub3v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub3v").innerHTML=("");		
+						}
+						if (sub4=="") 
+						{
+							document.getElementById("sub4v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub4v").innerHTML=("");		
+						}
+						if (sub5=="") 
+						{
+							document.getElementById("sub5v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub5v").innerHTML=("");		
+						}
+						if (sub6=="") 
+						{
+							document.getElementById("sub6v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub6v").innerHTML=("");		
+						}
+						if (sub7=="") 
+						{
+							document.getElementById("sub7v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub7v").innerHTML=("");		
+						}
+						if (sub8=="") 
+						{
+							document.getElementById("sub8v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub8v").innerHTML=("");		
+						}
+						if (sub9=="") 
+						{
+							document.getElementById("sub9v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub9v").innerHTML=("");		
+						}
+						if (sub10=="") 
+						{
+							document.getElementById("sub10v").innerHTML=("*Enter Your Subject Name");	
+						}
+						else
+						{
+							document.getElementById("sub10v").innerHTML=("");		
+						}
+
+						return false;	
+					}
+				}
+
+			}
+		}
+	</script>
+	<div class="row mt-3">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-1 logo1"> <img src="pics/t1.png" width="100%"></div>
+		<div class="col-lg-3 logo2 border border-dark border-right-0 border-top-0 border-bottom-0"><img src="pics/t2.png" width="50%"></div>
+		<div class="col-lg-6 adform mt-3 font-weight-bold text-md-right" style="color:#323E6F">
+			ADMISSION FORM
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+	<div class="row mt-4">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10 border border-dark border-left-0 border-right-0">
+
+
+			<!-- Form starts here -->
+		    <form class="form-group form1 mb-5" name="forms" id="subj" method="post" action="testform.php" onsubmit="return validation2()">
+				<!-- Pervious data -->
+				<div class="text-uppercase mt-3 text-white h3 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+					Applying for 
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="text-uppercase mt-1 text-white h4 p-1 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+							discipline you have selected
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<input  id="dis" disabled class="form-control mt-1 text-uppercase" type ="text" placeholder="<?php echo $majorsub ?>" style="border:3px inset lightgray;font-weight: 700">
+						<input id="majorsubi" type="hidden" value="<?php echo $majorsub ?>">	
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="text-uppercase mt-1 text-white h4 p-1 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+							Class you have selected
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<input id="dis" disabled class="form-control mt-1 text-uppercase" type ="text" placeholder="<?php echo $class ?>" value="" style="border:3px inset lightgray;font-weight: 700">	
+						<input id="classi" type="hidden" value="<?php echo $class ?>">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-lg-6">
+						<div class="text-uppercase mt-1 text-white h4 p-1 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+							Group you have selected
+						</div>
+					</div>
+					<div class="col-lg-6">
+						<input id="dis" disabled class="form-control mt-1 text-uppercase" type ="text" placeholder="<?php echo $group ?>" value="" style="border:3px inset lightgray;font-weight: 700">	
+						<input id="groupi" type="hidden" value="<?php echo $group ?>">
+					</div>
+				</div>
+				<!-- Pervious data -->
+				<?php
+					if (($majorsub=="Matric")||($majorsub=="Intermediate")||($majorsub=="Bachelors")
+					||($majorsub=="Entry_Test")||($majorsub=="Courses"))
+					{				  
+						echo '
+						 	<div class="text-uppercase mt-5 text-white h3 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+							Select your subjects 
+							</div>
+							<div class="row">
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4 text-center">
+									<span id="errorbar" style="color: red;font-size: 15px;font-family:italic;"></span>
+								</div>	
+								<div class="col-lg-4"></div>
+							</div>
+							';
+					}
+					elseif (($majorsub=="Masters")||($majorsub=="Junior"))
+					{				  
+						echo '
+							<div class=" text-uppercase mt-5 text-white h3 font-weight-bold" style="background-color:#323E6F;text-align: center;">
+								subjects
+							</div>
+							<div class="row">
+								<div class="col-lg-4"></div>
+								<div class="col-lg-4 text-center">
+									<span id="errorbar" style="color: red;font-size: 15px;font-family:italic;"></span>
+								</div>	
+								<div class="col-lg-4"></div>
+							</div>
+							';
+					}
+				?>
+
+
+
+<!-- ********************************************************************************** -->
+							<!-- Previous data -->
+				<!-- Main page form data starts-->
+				<input type="hidden" name="majorsub" value="<?php echo ($majorsub)?>">
+				<input type="hidden" name="sname" value="<?php echo ($sname)?>">
+				<input type="hidden" name="sfname" value="<?php echo ($sfname)?>">
+				<input type="hidden" name="gender" value="<?php echo ($gender)?>">
+				<input type="hidden" name="dob" value="<?php echo ($dob)?>">
+				<input type="hidden" name="sdomicile" value="<?php echo ($sdomicile)?>">
+				<input type="hidden" name="sreligion" value="<?php echo ($sreligion)?>">
+				<input type="hidden" name="scnic" value="<?php echo ($scnic)?>">
+				<input type="hidden" name="snationality" value="<?php echo ($snationality)?>">
+				<input type="hidden" name="sphone" value="<?php echo ($sphone)?>">
+				<input type="hidden" name="semail" value="<?php echo ($semail)?>">
+				<input type="hidden" name="scell" value="<?php echo ($scell)?>">
+				<input type="hidden" name="saddress" value="<?php echo ($saddress)?>">
+				<input type="hidden" name="ginfo" value="<?php echo ($ginfo)?>">
+				<input type="hidden" name="relation" value="<?php echo ($relation)?>">
+				<input type="hidden" name="gname" value="<?php echo ($gname)?>">
+				<input type="hidden" name="gcnic" value="<?php echo ($gcnic)?>">
+				<input type="hidden" name="gemail" value="<?php echo ($gemail)?>">
+				<input type="hidden" name="gphone" value="<?php echo ($gphone)?>">
+				<input type="hidden" name="gcell" value="<?php echo ($gcell)?>">
+				<!-- Main page form data ends -->
+
+				<!-- Second page form data Starts -->
+				<input type="hidden" name="class" value="<?php echo ($class)?>">
+				<input type="hidden" name="batch" value="<?php echo ($batch)?>">
+				<input type="hidden" name="group" value="<?php echo ($group)?>">
+				<input type="hidden" name="status" value="<?php echo ($status)?>">
+				<input type="hidden" name="board" value="<?php echo ($board)?>">
+				<!-- Second page form data ends -->
+				
+
+
+
+
+
+<!-- ********************************************************************************** -->
+
+					
+
+				<?php
+
+// *********************************************************************************************************************
+				// Matric subjects starts
+					if((($class=="Ninth")||($class=="Tenth"))&&($group=="Sci_Bio"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Bio">
+										<label for="sub2">Biology</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="P.St">
+										<label for="sub5">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Urdu">
+										<label for="sub7">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Math">
+										<label for="sub8">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub9" name="sub[]" value="Isl">
+										<label for="sub9">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif((($class=="Ninth")||($class=="Tenth"))&&($group=="Sci_Comp"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Comp">
+										<label for="sub2">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="P.St">
+										<label for="sub5">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Urdu">
+										<label for="sub7">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Math">
+										<label for="sub8">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub9" name="sub[]" value="Isl">
+										<label for="sub9">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif((($class=="Ninth")||($class=="Tenth"))&&($group=="Arts"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Civics">
+										<label for="sub2">Civics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Phy-Edu">
+										<label for="sub4">Phy.Edu</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="P.St">
+										<label for="sub5">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Eco">
+										<label for="sub6">Economics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Urdu">
+										<label for="sub7">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Math">
+										<label for="sub8">General Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub9" name="sub[]" value="Isl">
+										<label for="sub9">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Matric")&&($group=="Sci_Bio"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Bio-I">
+										<label for="sub2">Biology-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Bio-II">
+										<label for="sub3">Biology-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Chem-I">
+										<label for="sub6">Chemistry-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Chem-II">
+										<label for="sub7">Chemistry-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="P.St-I">
+										<label for="sub8">Pak Studies-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St-II">
+										<label for="sub9">Pak Studies-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Phy-I">
+										<label for="sub10">Physics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Phy-II">
+										<label for="sub11">Physics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub14" name="sub[]" value="Math-I">
+										<label for="sub14">Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub15" name="sub[]" value="Math-II">
+										<label for="sub15">Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub16" name="sub[]" value="Isl-I">
+										<label for="sub16">Islamiat-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub17" name="sub[]" value="Isl-II">
+										<label for="sub17">Islamiat-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Matric")&&($group=="Sci_Comp"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Comp-I">
+										<label for="sub2">Computer-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Comp-II">
+										<label for="sub3">Computer-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Chem-I">
+										<label for="sub6">Chemistry-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Chem-II">
+										<label for="sub7">Chemistry-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="P.St-I">
+										<label for="sub8">Pak Studies-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St-II">
+										<label for="sub9">Pak Studies-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Phy-I">
+										<label for="sub10">Physics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Phy-II">
+										<label for="sub11">Physics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub14" name="sub[]" value="Math-I">
+										<label for="sub14">Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub15" name="sub[]" value="Math-II">
+										<label for="sub15">Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub16" name="sub[]" value="Isl-I">
+										<label for="sub16">Islamiat-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub17" name="sub[]" value="Isl-II">
+										<label for="sub17">Islamiat-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Matric")&&($group=="Arts"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Civics-I">
+										<label for="sub2">Civics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Civics-II">
+										<label for="sub3">Civics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy-Edu-I">
+										<label for="sub6">Phy-Edu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Phy-Edu-II">
+										<label for="sub7">Phy-Edu-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="P.St-I">
+										<label for="sub8">Pak Studies-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St-II">
+										<label for="sub9">Pak Studies-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Eco-I">
+										<label for="sub10">Economics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Eco-II">
+										<label for="sub11">Economics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub14" name="sub[]" value="G-Maths-I">
+										<label for="sub14">General Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub15" name="sub[]" value="G-Maths-II">
+										<label for="sub15">General Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub16" name="sub[]" value="Isl-I">
+										<label for="sub16">Islamiat-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub17" name="sub[]" value="Isl-II">
+										<label for="sub17">Islamiat-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+
+
+				 // Matric Subjects ends
+
+
+// *****************************************************************************************************
+
+
+				// Intermediate subjects starts
+					// first year starts************************************************************
+					elseif(($class=="First_year")&&($group=="FSC_Med"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Biology">
+										<label for="sub2">Biology</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="FSC_Eng"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="ICS_Phy"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="ICS_Stats"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+										<label for="sub6">Statistics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="ICS_Eco"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Eco">
+										<label for="sub2">Economics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+										<label for="sub6">Statistics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="ICOM"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Accounting">
+										<label for="sub2">Accounting</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="B_Math">
+										<label for="sub4">Business Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="POC">
+										<label for="sub6">Principal of Commerce</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="POE">
+										<label for="sub8">Principal of Economics</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="First_year")&&($group=="FA"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Civics">
+										<label for="sub2">Civics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Phy_Edu">
+										<label for="sub4">Physical Education</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Eco">
+										<label for="sub6">Economics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="Isl">
+										<label for="sub7">Islamiat</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl-Elt">
+										<label for="sub8">Islamiat Elective</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					// First year ends***************************************************************
+
+
+
+					// Second year starts ***********************************************************
+
+					elseif(($class=="Second_year")&&($group=="FSC_Med"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Biology">
+										<label for="sub2">Biology</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="FSC_Eng"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Chem">
+										<label for="sub4">Chemistry</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="ICS_Phy"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy">
+										<label for="sub6">Physics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="ICS_Stats"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math">
+										<label for="sub2">Maths</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+										<label for="sub6">Statistics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="ICS_Eco"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Eco">
+										<label for="sub2">Economics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Comp">
+										<label for="sub4">Computer</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+										<label for="sub6">Statistics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="ICOM"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Accounting">
+										<label for="sub2">Accounting</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="B_Stats">
+										<label for="sub4">Business Stats</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Banking">
+										<label for="sub6">Banking</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Com_Geo">
+										<label for="sub8">Commercial Geography</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Second_year")&&($group=="FA"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub2" name="sub[]" value="Civics">
+										<label for="sub2">Civics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub3" name="sub[]" value="English">
+										<label for="sub3">English</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub4" name="sub[]" value="Phy_Edu">
+										<label for="sub4">Physical Education</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub5" name="sub[]" value="Urdu">
+										<label for="sub5">Urdu</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub6" name="sub[]" value="Eco">
+										<label for="sub6">Economics</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub7" name="sub[]" value="P.St">
+										<label for="sub7">Pak-Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl-Elt">
+										<label for="sub8">Islamiat Elective</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+
+					// Second year ends**************************************************************
+
+
+
+
+
+					// Composite starts here**********************************************************
+					elseif(($class=="Composite_Inter")&&($group=="FSC_Med"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Bio-I">
+										<label for="sub2">Biology-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Bio-II">
+										<label for="sub3">Biology-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Chem-I">
+										<label for="sub6">Chemistry-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Chem-II">
+										<label for="sub7">Chemistry-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Phy-I">
+										<label for="sub10">Physics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Phy-II">
+										<label for="sub11">Physics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="FSC_Eng"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math-I">
+										<label for="sub2">Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Math-II">
+										<label for="sub3">Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Chem-I">
+										<label for="sub6">Chemistry-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Chem-II">
+										<label for="sub7">Chemistry-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Phy-I">
+										<label for="sub10">Physics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Phy-II">
+										<label for="sub11">Physics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="ICS_Phy"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math-I">
+										<label for="sub2">Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Math-II">
+										<label for="sub3">Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Comp-I">
+										<label for="sub6">Computer-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Comp-II">
+										<label for="sub7">Computer-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Phy-I">
+										<label for="sub10">Physics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Phy-II">
+										<label for="sub11">Physics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="ICS_Stats"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Math-I">
+										<label for="sub2">Maths-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Math-II">
+										<label for="sub3">Maths-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Comp-I">
+										<label for="sub6">Computer-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Comp-II">
+										<label for="sub7">Computer-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Stats-I">
+										<label for="sub10">Statistics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Stats-II">
+										<label for="sub11">Statistics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="ICS_Eco"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Eco-I">
+										<label for="sub2">Economics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Eco-II">
+										<label for="sub3">Economics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Comp-I">
+										<label for="sub6">Computer-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Comp-II">
+										<label for="sub7">Computer-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Stats-I">
+										<label for="sub10">Statistics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Stats-II">
+										<label for="sub11">Statistics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="ICOM"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Accounting-I">
+										<label for="sub2">Accounting-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Accounting-II">
+										<label for="sub3">Accounting-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="B_Math">
+										<label for="sub6">Business Maths</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="B_Stats">
+										<label for="sub7">Business Stats</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="POE">
+										<label for="sub10">Principal of Eco</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="POC">
+										<label for="sub11">Principal of Com</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub14" name="sub[]" value="Banking">
+										<label for="sub14">Banking</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub15" name="sub[]" value="Com_Geo">
+										<label for="sub15">Commercial Geography</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Inter")&&($group=="FA"))
+					{
+						echo ' 
+							<div class="row">
+								<div class="col-lg-12 mb-3">
+									<input onclick="checkAll()" type="checkbox" id="sub1" name="sub[]" value="All_Subject">
+									<label for="sub1">All Subjects</label>
+								</div>
+							</div>
+							<hr>
+							<div id="subline" style="display:;">
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub2" name="sub[]" value="Civics-I">
+										<label for="sub2">Civics-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub3" name="sub[]" value="Civics-II">
+										<label for="sub3">Civics-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub4" name="sub[]" value="English-I">
+										<label for="sub4">English-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub5" name="sub[]" value="English-II">
+										<label for="sub5">English-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub6" name="sub[]" value="Phy_Edu-I">
+										<label for="sub6">Physical Edu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub7" name="sub[]" value="Phy_Edu-II">
+										<label for="sub7">Physical Edu-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+										<label for="sub8">Islamiat</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+										<label for="sub9">Pak Studies</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub10" name="sub[]" value="Isl_Elt-I">
+										<label for="sub10">Islamiat Elective-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub11" name="sub[]" value="Isl_Elt-II">
+										<label for="sub11">Islamiat Elective-II</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub12" name="sub[]" value="Urdu-I">
+										<label for="sub12">Urdu-I</label>
+									</div>
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub13" name="sub[]" value="Urdu-II">
+										<label for="sub13">Urdu-II</label>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-lg-3">
+										<input type="checkbox" id="sub14" name="sub[]" value="Eco-I">
+										<label for="sub14">Economics-I</label>
+									</div>
+									<div class="col-lg-6">
+										<input type="checkbox" id="sub15" name="sub[]" value="Eco-II">
+										<label for="sub15">Economics-II</label>
+									</div>
+								</div>
+							</div>
+							';
+					}
+
+					// Composite ends here**********************************************************
+
+
+
+				// Intermediate subjects ends
+
+// **************************************************************************************************
+
+// **************************************************************************************************
+				// Bachelors starts
+
+					// Third year starts*************************************************************
+
+					elseif(($class=="Third_year")&&($group=="BSC"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub1" name="sub[]" value="G_Math">
+									<label for="sub1">General Maths</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub2" name="sub[]" value="MathA">
+									<label for="sub2">Math A</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub3" name="sub[]" value="MathB">
+									<label for="sub3">Math B</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub4" name="sub[]" value="Phy">
+									<label for="sub4">Physics</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub5" name="sub[]" value="Chem">
+									<label for="sub5">Chemistry</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+									<label for="sub6">Statistics</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub7" name="sub[]" value="Eco">
+									<label for="sub7">Economics</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub8" name="sub[]" value="Comp">
+									<label for="sub8">Computer</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub9" name="sub[]" value="Zoology">
+									<label for="sub9">Zoology</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub10" name="sub[]" value="Botany">
+									<label for="sub10">Botany</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub11" name="sub[]" value="In_Chem">
+									<label for="sub11">Inorganic Chem</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub12" name="sub[]" value="Phy_Chem">
+									<label for="sub12">Physical Chem</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub13" name="sub[]" value="Psych">
+									<label for="sub13">Psychology</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub14" name="sub[]" value="BioChem">
+									<label for="sub14">Bio Chem</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub15" name="sub[]" value="P.St">
+									<label for="sub15">Pak-Studies</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub16" name="sub[]" value="isl">
+									<label for="sub16">Islamiat</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub17" name="sub[]" value="Eng">
+									<label for="sub17">English</label>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Third_year")&&($group=="BCOM"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub1" name="sub[]" value="Fin_Acc">
+									<label for="sub1">Fin Accounting</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub2" name="sub[]" value="BSM">
+									<label for="sub2">BSM</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub3" name="sub[]" value="Eco">
+									<label for="sub3">Economics</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub4" name="sub[]" value="MBF">
+									<label for="sub4">MBF</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub5" name="sub[]" value="ITB">
+									<label for="sub5">ITB</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub6" name="sub[]" value="Comp">
+									<label for="sub6">Computer</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub7" name="sub[]" value="F_Eng">
+									<label for="sub7">Functional Eng</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+									<label for="sub8">Islamiat</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+									<label for="sub9">Pak-Studies</label>
+								</div>
+								<div class="col-lg-6">
+									
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Third_year")&&($group=="BA"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub1" name="sub[]" value="Eng">
+									<label for="sub1">English</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub2" name="sub[]" value="Civics">
+									<label for="sub2">Civics</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub3" name="sub[]" value="Phy_Edu">
+									<label for="sub3">Physical Edu</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub4" name="sub[]" value="Eco/H_Eco">
+									<label for="sub4">Eco/Home_Eco</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub5" name="sub[]" value="Isl-Elt">
+									<label for="sub5">Islamiat Elective</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub6" name="sub[]" value="Comp">
+									<label for="sub6">Computer</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub7" name="sub[]" value="Persian">
+									<label for="sub7">Persian</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+									<label for="sub8">Islamiat</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub9" name="sub[]" value="S_St">
+									<label for="sub9">Social Studies</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub10" name="sub[]" value="P.St">
+									<label for="sub10">Pak-Studies</label>
+								</div>
+							</div>
+
+							';
+					}
+
+					// Third year ends***************************************************************
+
+					// Fourth year starts************************************************************
+
+					elseif(($class=="Fourth_year")&&($group=="BSC"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub1" name="sub[]" value="G_Math">
+									<label for="sub1">General Maths</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub2" name="sub[]" value="MathA">
+									<label for="sub2">Math A</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub3" name="sub[]" value="MathB">
+									<label for="sub3">Math B</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub4" name="sub[]" value="Phy">
+									<label for="sub4">Physics</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub5" name="sub[]" value="Chem">
+									<label for="sub5">Chemistry</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub6" name="sub[]" value="Stats">
+									<label for="sub6">Statistics</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub7" name="sub[]" value="Eco">
+									<label for="sub7">Economics</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub8" name="sub[]" value="Comp">
+									<label for="sub8">Computer</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub9" name="sub[]" value="Zoology">
+									<label for="sub9">Zoology</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub10" name="sub[]" value="Botany">
+									<label for="sub10">Botany</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub11" name="sub[]" value="In_Chem">
+									<label for="sub11">Inorganic Chem</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub12" name="sub[]" value="Phy_Chem">
+									<label for="sub12">Physical Chem</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub13" name="sub[]" value="Psych">
+									<label for="sub13">Psychology</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub14" name="sub[]" value="BioChem">
+									<label for="sub14">Bio Chem</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub15" name="sub[]" value="P.St">
+									<label for="sub15">Pak-Studies</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub16" name="sub[]" value="isl">
+									<label for="sub16">Islamiat</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub17" name="sub[]" value="Eng">
+									<label for="sub17">English</label>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Fourth_year")&&($group=="BCOM"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub1" name="sub[]" value="Adv_Acc">
+									<label for="sub1">Adv Accounting</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub2" name="sub[]" value="Cost_Acc">
+									<label for="sub2">Cost Accounting</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub3" name="sub[]" value="B_Tax">
+									<label for="sub3">Business Tax</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub4" name="sub[]" value="EOP">
+									<label for="sub4">EOP</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub5" name="sub[]" value="B_Law">
+									<label for="sub5">Business Law</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub6" name="sub[]" value="Audit">
+									<label for="sub6">Audit</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub7" name="sub[]" value="BCRW">
+									<label for="sub7">BCRW</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub8" name="sub[]" value="Isl">
+									<label for="sub8">Islamiat</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub9" name="sub[]" value="P.St">
+									<label for="sub9">Pak-Studies</label>
+								</div>
+								<div class="col-lg-6">
+									
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Fourth_year")&&($group=="BA"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub1" name="sub[]" value="Eng">
+									<label for="sub1">English</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub2" name="sub[]" value="Civics">
+									<label for="sub2">Civics</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub3" name="sub[]" value="Phy_Edu">
+									<label for="sub3">Physical Edu</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub4" name="sub[]" value="Eco/H_Eco">
+									<label for="sub4">Eco/Home-Eco</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub5" name="sub[]" value="Isl-Elt">
+									<label for="sub5">Islamiat Elective</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub6" name="sub[]" value="Comp">
+									<label for="sub6">Computer</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub7" name="sub[]" value="Persian">
+									<label for="sub7">Persian</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub8" name="sub[]" value="P.St">
+									<label for="sub8">Pak-Studies</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub9" name="sub[]" value="S_St">
+									<label for="sub9">Social Studies</label>
+								</div>
+								<div class="col-lg-6">
+									<input type="checkbox" id="sub10" name="sub[]" value="Isl">
+									<label for="sub10">Islamiat</label>
+								</div>
+							</div>
+
+							';
+					}
+
+					// Fourth year ends**************************************************************
+
+
+
+					// Composite bachelors starts here ************************************************
+
+					elseif(($class=="Composite_Bachelors")&&($group=="BSC"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub1" name="sub[]" value="G_Math-I">
+									<label for="sub1">General Maths-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub2" name="sub[]" value="G_Math-II">
+									<label for="sub2">General Maths-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub3" name="sub[]" value="MathA-I">
+									<label for="sub3">MathA-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub4" name="sub[]" value="MathA-II">
+									<label for="sub4">MathA-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub5" name="sub[]" value="MathB-I">
+									<label for="sub5">MathB-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub6" name="sub[]" value="MathB-II">
+									<label for="sub6">MathB-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub7" name="sub[]" value="Eco-I">
+									<label for="sub7">Economics-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub8" name="sub[]" value="Eco-II">
+									<label for="sub8">Economics-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub9" name="sub[]" value="Stats-I">
+									<label for="sub9">Statistics-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub10" name="sub[]" value="Stats-II">
+									<label for="sub10">Statistics-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub11" name="sub[]" value="In_Chem-I">
+									<label for="sub11">Inorganic Chem-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub12" name="sub[]" value="In_Chem-II">
+									<label for="sub12">Inorganic Chem-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub13" name="sub[]" value="Phy-Chem-I">
+									<label for="sub13">Physical Chem-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub14" name="sub[]" value="Phy-Chem-II">
+									<label for="sub14">Physical Chem-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub15" name="sub[]" value="Psych-I">
+									<label for="sub15">Psychology-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub16" name="sub[]" value="Psych-II">
+									<label for="sub16">Psychology-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub17" name="sub[]" value="BioChem-I">
+									<label for="sub17">BioChem-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub18" name="sub[]" value="BioChem-II">
+									<label for="sub18">BioChem-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub19" name="sub[]" value="Chem-I">
+									<label for="sub19">Chem-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub20" name="sub[]" value="Chem-II">
+									<label for="sub20">Chem-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub21" name="sub[]" value="Zoology-I">
+									<label for="sub21">Zoology-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub22" name="sub[]" value="Zoology-II">
+									<label for="sub22">Zoology-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub23" name="sub[]" value="Botany-I">
+									<label for="sub23">Botany-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub24" name="sub[]" value="Botany-II">
+									<label for="sub24">Botany-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub25" name="sub[]" value="Phy-I">
+									<label for="sub25">Physics-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub26" name="sub[]" value="Phy-II">
+									<label for="sub26">Physics-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub27" name="sub[]" value="Comp-I">
+									<label for="sub27">Computer-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub28" name="sub[]" value="Comp-II">
+									<label for="sub28">Computer-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub29" name="sub[]" value="P.St">
+									<label for="sub29">Pak-Studies</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub30" name="sub[]" value="Eng">
+									<label for="sub30">English</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub31" name="sub[]" value="Isl">
+									<label for="sub31">Islamiat</label>
+								</div>
+							</div>
+							
+							';	
+					}					
+					elseif(($class=="Composite_Bachelors")&&($group=="BCOM"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub1" name="sub[]" value="Fin_Acc">
+									<label for="sub1">Fin Accounting</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub2" name="sub[]" value="BSM">
+									<label for="sub2">BSM</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub3" name="sub[]" value="Eco">
+									<label for="sub3">Economics</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub4" name="sub[]" value="MBF">
+									<label for="sub4">MBF</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub5" name="sub[]" value="F_Eng">
+									<label for="sub5">Functional Eng</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub6" name="sub[]" value="Adv_Acc">
+									<label for="sub6">Adv Accounting</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub7" name="sub[]" value="Cost_Acc">
+									<label for="sub7">Cost Accounting</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub8" name="sub[]" value="B_Tax">
+									<label for="sub8">Business Tax</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub9" name="sub[]" value="EOP">
+									<label for="sub9">EOP</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub10" name="sub[]" value="B_Law">
+									<label for="sub10">Business Law</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub11" name="sub[]" value="Audit">
+									<label for="sub11">Audit</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub12" name="sub[]" value="BCRW">
+									<label for="sub12">BCRW</label>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-lg-3">
+									<input type="checkbox" id="sub13" name="sub[]" value="Comp-I">
+									<label for="sub13">Computer-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub14" name="sub[]" value="Comp-II">
+									<label for="sub14">Computer-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub15" name="sub[]" value="Isl">
+									<label for="sub15">Islamiat</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub16" name="sub[]" value="P.St">
+									<label for="sub16">Pak-Studies</label>
+								</div>
+							</div>
+							';
+					}
+					elseif(($class=="Composite_Bachelors")&&($group=="BA"))
+					{
+						echo ' 
+							<div class="row mt-5">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub1" name="sub[]" value="Eng-I">
+									<label for="sub1">English-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub2" name="sub[]" value="Eng-II">
+									<label for="sub2">English-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub3" name="sub[]" value="Civics-I">
+									<label for="sub3">Civics-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub4" name="sub[]" value="Civics-II">
+									<label for="sub4">Civics-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub5" name="sub[]" value="Phy_Edu-I">
+									<label for="sub5">Physical Edu-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub6" name="sub[]" value="Phy_Edu-II">
+									<label for="sub6">Physical Edu-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub7" name="sub[]" value="Eco/H_Eco-I">
+									<label for="sub7">Eco/H-Eco-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub8" name="sub[]" value="Eco/H_Eco-II">
+									<label for="sub8">Eco/H-Eco-II</label>
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub9" name="sub[]" value="Isl-Elt-I">
+									<label for="sub9">Islamiat Elective-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub10" name="sub[]" value="Isl-Elt-II">
+									<label for="sub10">Islamiat Elective-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub11" name="sub[]" value="Persian-I">
+									<label for="sub11">Persian-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub12" name="sub[]" value="Persian-II">
+									<label for="sub12">Persian-II</label>
+								</div>
+							</div>
+							<div class="row">
+							<div class="col-lg-3">
+									<input type="checkbox" id="sub13" name="sub[]" value="S_St-I">
+									<label for="sub13">Social Studies-I</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub14" name="sub[]" value="S_St-II">
+									<label for="sub14">Social-Studies-II</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub15" name="sub[]" value="Isl">
+									<label for="sub15">Islamiat</label>
+								</div>
+								<div class="col-lg-3">
+									<input type="checkbox" id="sub16" name="sub[]" value="P.St">
+									<label for="sub16">Pak-Studies</label>
+								</div>
+							</div>
+							';
+					}
+
+					// Composite bachelors ends here **************************************************
+				// Bachelors ends
+// *******************************************************************************************************
+
+				// Masters starts here*****************************************************************
+
+					elseif (($majorsub=="Masters")||($majorsub=="Junior")) 
+					{
+						echo 
+						'
+						<div class="row mb-5">
+							<div class="col-lg-6">
+								<select onclick="SubjNum()" id="subn" name="subn" class="form-control mt-3">
+									<option value="" disabled selected>How many Subjects you wanted to Study</option>
+									<option value="1">One</option>
+									<option value="2">Two</option>
+									<option value="3">Three</option>
+									<option value="4">Four</option>
+									<option value="5">Five</option>
+									<option value="6">Six</option>
+									<option value="7">Seven</option>
+									<option value="8">Eight</option>
+									<option value="9">Nine</option>
+									<option value="10">Ten</option>
+								</select>
+							</div>
+							<div class="col-lg-6"></div>
+							<span class="ml-3" id="subnv" style="color: red;font-size: 15px;font-family:italic"></span>
+						</div>
+						<hr>
+						<div class="row">
+							<div class="col-lg-3 mt-3"  id="sub1" style="display:none">
+								<input class="form-control text-capitalize" id="sub1i" type="text" name="sub1" placeholder="Subject 1">
+								<span  id="sub1v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub2" style="display:none">
+								<input class="form-control text-capitalize" id="sub2i" type="text" name="sub2" placeholder="Subject 2">
+								<span  id="sub2v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub3" style="display:none">
+								<input class="form-control text-capitalize" id="sub3i" type="text" name="sub3" placeholder="Subject 3">
+								<span  id="sub3v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub4" style="display:none">
+								<input class="form-control text-capitalize" id="sub4i" type="text" name="sub4" placeholder="Subject 4">
+								<span  id="sub4v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3 mt-3"  id="sub5" style="display:none">
+								<input class="form-control text-capitalize"id="sub5i" type="text" name="sub5" placeholder="Subject 5">
+								<span  id="sub5v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub6" style="display:none">
+								<input class="form-control text-capitalize" id="sub6i" type="text" name="sub6" placeholder="Subject 6">
+								<span  id="sub6v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub7" style="display:none">
+								<input class="form-control text-capitalize" id="sub7i" type="text" name="sub7" placeholder="Subject 7">
+								<span  id="sub7v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub8" style="display:none">
+								<input class="form-control text-capitalize" id="sub8i" type="text" name="sub8" placeholder="Subject 8">
+								<span  id="sub8v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-lg-3 mt-3"  id="sub9" style="display:none">
+								<input class="form-control text-capitalize" id="sub9i" type="text" name="sub9" placeholder="Subject 9">
+								<span  id="sub9v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+							<div class="col-lg-3 mt-3"  id="sub10" style="display:none">
+								<input class="form-control text-capitalize" id="sub10i" type="text" name="sub10" placeholder="Subject 10">
+								<span  id="sub10v" style="color: red;font-size: 15px;font-family:italic"></span>
+							</div>
+						</div>
+						';
+					}
+
+				// Masters ends here*******************************************************************
+// ****************************************************************************************************
+					// Entry Starts here**************************************************************
+
+					elseif (($majorsub=="Entry_Test")&&($class=="Medical")) 
+					{
+						
+						echo '
+							<select id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="MDCAT_Plus">MDCAT_Plus</option>
+								<option value="NTS">NTS</option>
+								<option value="Other">Other</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}
+					elseif (($majorsub=="Entry_Test")&&($class=="Engineering")) 
+					{
+						
+						echo '
+							<select id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="ECAT_Plus">ECAT_Plus</option>
+								<option value="NTS">NTS</option>
+								<option value="Other">Other</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}					
+					elseif (($majorsub=="Entry_Test")&&($class=="Commerce")) 
+					{
+						
+						echo '
+							<select id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="NTS">NTS</option>
+								<option value="Other">Other</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}
+					elseif (($majorsub=="Entry_Test")&&($class=="Comp_Sci")) 
+					{
+						
+						echo '
+							<select id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="NTS">NTS</option>
+								<option value="Other">Other</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}
+
+					// Entry Starts here**************************************************************
+
+// *****************************************************************************************************
+					// Course starts********************************************************************
+
+					elseif (($majorsub=="Courses")&&($class=="Language")) 
+					{
+						
+						echo '
+							<select onclick="ShowMonth()" id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="English_lang">English Language</option>
+								<option value="ILETS">ILETS</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							<div class="col-lg-6 mt-3" id="lang" style="display:none">
+								<label class="radio">
+									<input id="month2" type="radio" name="month" value="2">
+									Two Months
+									<span></span>
+								</label>
+								<label class="radio">
+									<input id="month3" type="radio" name="month" value="3">
+									Three Months
+									<span></span>
+								</label>
+								<div>
+									<p id="monthv" style="color: red;font-size: 15px;font-family:italic"></p>
+								</div>
+							</div>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}
+					elseif (($majorsub=="Courses")&&($class=="Computer")) 
+					{
+						
+						echo '
+							<select id="subi" name="sub" class="form-control mt-3">
+								<option value="">Subjects</option>
+								<option value="Basic_Comp_Course">Basic Computer Course</option>
+								<option value="Adv_Comp_Course">Advance Computer Course</option>
+								<option value="Short_Hand_Writing">Short Hand Writing</option>
+							</select>
+							<span id="subv" style="color: red;font-size: 15px;font-family:italic"></span>
+							';	
+					}	
+
+					// Course Ends********************************************************************
+
+				 ?>
+				 <?php
+				 	if (($majorsub=="Matric")||($majorsub=="Intermediate")||($majorsub=="Bachelors"))
+				 	{ 
+					 	echo 
+					 	'
+							<div class="row">
+							 	<div class="col-lg-4"></div>
+							 	<div class="col-lg-4"></div>
+							 	<div class="col-lg-4 testbox">
+							 		<select name="Test" id="Test" class="form-control mt-5">
+										<option value="">Do you want to Apply for test Series</option>
+										<option value="Yes">Yes</option>
+										<option value="No">No</option>
+									</select>
+							 	</div>
+						 	</div>				 		
+					 	'; 
+					}
+					else
+				 	{ 
+					 	echo 
+					 	'
+							<input type="hidden" name="Test" value="No">			 		
+					 	'; 
+					}
+
+				  ?>
+				 
+
+				 <div class="row mt-5">
+					<div class="col-lg-2">
+						<a href="Studentform1.php" style="text-decoration: none" class="btn-outline-info form-control text-center mt-5">
+							<span style="font-weight: 800;">BACK</span>
+						</a>
+					</div>
+					<div class="col-lg-6"></div>
+					<div class="col-lg-2 mt-5">
+						<input style="font-weight: 800;" type="reset" class="form-control btn btn-outline-danger" value="RESET" name="reset">
+					</div>
+					<div class="col-lg-2 mt-5">
+						<input style="font-weight: 800;" type="submit" class="next form-control btn btn-outline-success" value="NEXT" name="submit">
+						<input type="hidden" name="check2" value="true">
+					</div>
+				</div>
+			</form>
+			<!-- Form ends here -->
+
+
+		</div>
+		<div class="col-lg-1"></div>	
+	</div>	
+	<div style="margin-top: 100px;"></div>
+
+
+
+
+
+<!-- To check all checkbox at a time -->
+<script>
+	function checkAll()
+	{
+		var allsub = document.getElementById('sub1');
+		var label = document.getElementById('sub1');
+		var input = document.getElementsByTagName('input');
+		var subline  = document.getElementById("subline");
+
+		if (allsub.checked==true) 
+		{
+			for(var i=0;i<input.length;i++)
+			{
+				if(input[i].type=="checkbox" && input[i].id!="sub1" && input[i].checked== false)
+				{
+					input[i].checked=true;
+					subline.style.display="none";
+				}
+				else if(input[i].id!="sub1" && input[i].checked==true)
+				{
+					subline.style.display="none";
+
+				}
+			}
+		}
+		else if (allsub.checked==false) 
+		{
+			for(var i=0;i<input.length;i++)
+			{
+				if(input[i].type=="checkbox" && input.id!="sub1" &&  input[i].checked== true)
+				{
+					input[i].checked=false;
+					subline.style.display="";
+				}
+			}
+		}
+	}
+	function ShowMonth()
+	{
+		var sub = document.getElementById("subi").value;
+		var lang= document.getElementById("lang");
+		var month2= document.getElementById("month2");
+	
+
+		if (sub=="English_lang") 
+		{
+			lang.style.display="block";
+			month2.value="2";
+		}
+		else if(sub!="English_lang")
+		{
+			lang.style.display="none";
+			month2.checked=true;
+			month2.value=" ";
+
+		}
+	}
+
+	function SubjNum()
+	{
+		var subn = document.getElementById("subn").value;
+		var sub1 = document.getElementById("sub1");
+		var sub2 = document.getElementById("sub2");
+		var sub3 = document.getElementById("sub3");
+		var sub4 = document.getElementById("sub4");
+		var sub5 = document.getElementById("sub5");
+		var sub6 = document.getElementById("sub6");
+		var sub7 = document.getElementById("sub7");
+		var sub8 = document.getElementById("sub8");
+		var sub9 = document.getElementById("sub9");
+		var sub10 = document.getElementById("sub10");
+		if (subn=="1") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="none";
+			sub3.style.display="none";
+			sub4.style.display="none";
+			sub5.style.display="none";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="2") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="none";
+			sub4.style.display="none";
+			sub5.style.display="none";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="3") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="none";
+			sub5.style.display="none";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="4") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="none";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="5") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="6") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="block";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="7") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="block";
+			sub7.style.display="block";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="8") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="block";
+			sub7.style.display="block";
+			sub8.style.display="block";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+		else if (subn=="9") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="block";
+			sub7.style.display="block";
+			sub8.style.display="block";
+			sub9.style.display="block";
+			sub10.style.display="none";
+		}
+		else if (subn=="10") 
+		{
+			sub1.style.display="block";
+			sub2.style.display="block";
+			sub3.style.display="block";
+			sub4.style.display="block";
+			sub5.style.display="block";
+			sub6.style.display="block";
+			sub7.style.display="block";
+			sub8.style.display="block";
+			sub9.style.display="block";
+			sub10.style.display="block";
+		}
+		else
+		{
+			sub1.style.display="none";
+			sub2.style.display="none";
+			sub3.style.display="none";
+			sub4.style.display="none";
+			sub5.style.display="none";
+			sub6.style.display="none";
+			sub7.style.display="none";
+			sub8.style.display="none";
+			sub9.style.display="none";
+			sub10.style.display="none";
+		}
+	}
+</script>
+</body>
+</html>
